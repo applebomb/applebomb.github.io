@@ -7,13 +7,37 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="应用资源文件格式解析  及阿里破解示例  &amp;nbsp;  0x01 前言：  目前大部份公司如阿里，腾讯，360等对apk资源保护的方法是通过自动化测试工具寻找一些异常的数据格式，安卓虚拟机及aapt对于这些异常的格式可以正常处理，而apktool工具处理分析时会出现异常。  找到这些异常的数据格式后，利用改装后的aapt工具，对apk打包时设置这些">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="应用资源文件格式解析  及阿里破解示例  &amp;nbsp;  0x01 前言：  目前大部份公司如阿里，腾讯，360等对apk资源保护的方法是通过自动化测试工具寻找一些异常的数据格式，安卓虚拟机及aapt对于这些异常的格式可以正常处理，而apktool工具处理分析时会出现异常。  找到这些异常的数据格式后，利用改装后的aapt工具，对apk打包时设置这些">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image001.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image002.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image003.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image004.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image005.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image006.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image007.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image008.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image009.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image010.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image011.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image012.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image013.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image014.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image015.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image016.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image017.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image018.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image019.png">
+<meta property="og:updated_time" content="2018-05-02T08:23:09.655Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="应用资源文件格式解析  及阿里破解示例  &amp;nbsp;  0x01 前言：  目前大部份公司如阿里，腾讯，360等对apk资源保护的方法是通过自动化测试工具寻找一些异常的数据格式，安卓虚拟机及aapt对于这些异常的格式可以正常处理，而apktool工具处理分析时会出现异常。  找到这些异常的数据格式后，利用改装后的aapt工具，对apk打包时设置这些">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/应用资源文件格式解析及阿里破解示例.fld/image001.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,93 +84,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-apk分析流程/应用资源文件格式解析及阿里破解示例.fld/header" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例.fld/header/" class="article-date">
-  <time datetime="2018-05-02T08:23:09.652Z" itemprop="datePublished">2018-05-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns="http://www.w3.org/TR/REC-html40">
-
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="ProgId" content="Word.Document">
-<meta name="Generator" content="Microsoft Word 15">
-<meta name="Originator" content="Microsoft Word 15">
-<link id="Main-File" rel="Main-File" href="../应用资源文件格式解析及阿里破解示例.html">
-<!--[if gte mso 9]><xml>
- <o:shapedefaults v:ext="edit" spidmax="2049"/>
-</xml><![endif]-->
-</head>
-
-<body lang="EN-US" link="blue" vlink="#954F72">
-
-<div style="mso-element:footnote-separator" id="fs">
-
-<p class="MsoNormal"><span style="mso-special-character:footnote-separator"><![if !supportFootnotes]>
-
-<hr align="left" size="1" width="33%">
-
-<![endif]></span></p>
-
-</div>
-
-<div style="mso-element:footnote-continuation-separator" id="fcs">
-
-<p class="MsoNormal"><span style="mso-special-character:footnote-continuation-separator"><![if !supportFootnotes]>
-
-<hr align="left" size="1">
-
-<![endif]></span></p>
-
-</div>
-
-<div style="mso-element:endnote-separator" id="es">
-
-<p class="MsoNormal"><span style="mso-special-character:footnote-separator"><![if !supportFootnotes]>
-
-<hr align="left" size="1" width="33%">
-
-<![endif]></span></p>
-
-</div>
-
-<div style="mso-element:endnote-continuation-separator" id="ecs">
-
-<p class="MsoNormal"><span style="mso-special-character:footnote-continuation-separator"><![if !supportFootnotes]>
-
-<hr align="left" size="1">
-
-<![endif]></span></p>
-
-</div>
-
-</body>
-
-</html>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例.fld/header/" data-id="cjgou5tvy000cerv6zp9ojx7x" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-apk分析流程/应用资源文件格式解析及阿里破解示例" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-apk分析流程/应用资源文件格式解析及阿里破解示例" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例/" class="article-date">
   <time datetime="2018-05-02T08:23:05.985Z" itemprop="datePublished">2018-05-02</time>
@@ -4518,269 +4456,28 @@ Cambria;mso-hansi-font-family:Cambria">资源</span></p>
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-apk分析流程" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/30/apk分析流程/" class="article-date">
-  <time datetime="2018-04-30T13:45:15.000Z" itemprop="datePublished">2018-04-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/主流程/">主流程</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2018/05/02/apk分析流程/应用资源文件格式解析及阿里破解示例.fld/header/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
+          (no title)
+        
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/30/apk分析流程/">apk分析流程</a>
-    </h1>
   
+    <a href="/2018/04/30/apk分析流程/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">apk分析流程</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>先用apktool解包</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java -jar apktool.jar d -f rimet_700219.apk <span class="comment"># d 解包 -f 替换文件夹</span></span><br><span class="line">java -jar apktool.jar -advance <span class="comment"># 帮助</span></span><br></pre></td></tr></table></figure>
-<p>不成功做下面分析：</p>
-<p><a href="#apktool源代码分析apk-anti-tools">* 下载apktool源代码分析</a><br><a href="#安装和卸载apktools的framework">* 安装phone framework, framework-res 再解包试试</a><br><a href="">* 反apktool原理</a><br><a href="./应1sssss用资源文件格式解析及阿里破解示例.html" title="最后一节">* 阿里反apktool分析与修改</a></p>
-</li>
-<li><p>解包成功马上打包回去试试，如果没问题，则可以修改</p>
-<pre><code>apktool b apkfolder –o out\app.apk
-</code></pre></li>
-<li><p>分析逻辑，修改smali， java</p>
-<p><a href="#apk逆向技巧">*分析技巧</a></p>
-</li>
-<li><p>打包</p>
-<p><a href="#apk简要结构">*apk简要结构</a><br><a href="#aapt替换检查apk文件">*用aapt替换检查apk文件</a></p>
-</li>
-<li><p>签名</p>
-<pre><code>Ex A: jarsigner -verbose -keystore dingding.keystore k.apk dingding.keystore  # desc1 
-Ex B: jarsigner -digestalg SHA1 -sigalg MD5withRSA -tsa -verbose -keystore coolapk.keystore -signedjar coolapk-signed.apk coolapk.apk coolapk #desc 2
-</code></pre><p><a href="#签名命令详细解释">*签名命令更详细解释</a><br><a href="#apk签名原理">*签名原理</a></p>
-</li>
-</ol>
-<ol start="6">
-<li><p>使用adb安装卸载apk</p>
-<pre><code>adb install -r ./k.apk     //-r force install
-adb uninstall SpareParts.apk  -- Failed
-adb uninstall com.alibaba.android.rimet
-adb push xxx.apk /phone/path/
-</code></pre><p><a href="#adb-安装和卸载-apk">*安装卸载更详细解释</a></p>
-</li>
-</ol>
-        
-          <p class="article-more-link">
-            <a href="/2018/04/30/apk分析流程/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/30/apk分析流程/" data-id="cjgogzk3g0001erv6xoj95r4e" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-HTML特殊字符" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/30/HTML特殊字符/" class="article-date">
-  <time datetime="2018-04-30T12:30:00.000Z" itemprop="datePublished">2018-04-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/30/HTML特殊字符/">HTML特殊字符</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>写.md时候用</p>
-        
-          <p class="article-more-link">
-            <a href="/2018/04/30/HTML特殊字符/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/30/HTML特殊字符/" data-id="cjgogzk4f000aerv6htiweokx" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/30/hello-world/" class="article-date">
-  <time datetime="2018-04-30T08:55:38.844Z" itemprop="datePublished">2018-04-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/30/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-        
-          <p class="article-more-link">
-            <a href="/2018/04/30/hello-world/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/30/hello-world/" data-id="cjgogzk3l0002erv6ztly281t" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hexo-md语法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/30/hexo-md语法/" class="article-date">
-  <time datetime="2018-04-30T06:33:55.000Z" itemprop="datePublished">2018-04-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/30/hexo-md语法/">hexo md语法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/30/hexo-md语法/" data-id="cjgogzk380000erv6zko8x4fd" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-reverse-tools-intro" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/30/reverse-tools-intro/" class="article-date">
-  <time datetime="2018-04-30T04:56:50.000Z" itemprop="datePublished">2018-04-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/xx/">xx</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/30/reverse-tools-intro/">Android 逆向工具</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="目标和原理"><a href="#目标和原理" class="headerlink" title="目标和原理"></a>目标和原理</h1><hr>
-<h2 id="apk生成"><a href="#apk生成" class="headerlink" title="apk生成"></a>apk生成</h2><ol>
-<li>java 经过 JVM 生成 .class </li>
-<li>通过 Android Dalvik 虚拟机编译成可执行文件 .smali </li>
-<li>.smali 加上 .resource 资源文件 打包</li>
-<li>对打包签名（SIGN）后 </li>
-<li>生成 apk</li>
-</ol>
-<h2 id="apk逆向分析"><a href="#apk逆向分析" class="headerlink" title="apk逆向分析"></a>apk逆向分析</h2><ol>
-<li>直接从apk用apktool解释出smali 或者 解压出dex通过 baksmali 转换成 smali/jar </li>
-<li>找出修改逻辑 重新用 apktool 打包 </li>
-<li>jarsigner 签名</li>
-<li>adb install 安装到手机上测试</li>
-</ol>
-<h2 id="转换工具速查"><a href="#转换工具速查" class="headerlink" title="转换工具速查"></a>转换工具速查</h2><ul>
-<li>apk &rarr; smali: <strong><em><code>apktool</code></em></strong></li>
-<li>dex &harr; smali: <strong><em><code>baksmali</code> <code>smali</code></em></strong></li>
-<li>dex &rarr; jar: <strong><em><code>dex2jar</code></em></strong></li>
-<li>java &rarr; smali: <strong><em><code>java2smali</code></em></strong></li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2018/04/30/reverse-tools-intro/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/30/reverse-tools-intro/" data-id="cjgogzk3t0004erv68h8ofwqa" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/intro/">intro</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
